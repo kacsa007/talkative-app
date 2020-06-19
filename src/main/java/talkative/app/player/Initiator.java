@@ -5,6 +5,11 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReentrantLock;
 
+/**
+*   Used for threading. The thread is going to be kept alive until a condition is met ( reached 10 )
+*
+**/
+
 public class Initiator extends Thread implements PlayerInterface {
 
 
@@ -13,8 +18,8 @@ public class Initiator extends Thread implements PlayerInterface {
 
     private BlockingQueue<Sender> queue;
     private BlockingQueue<Sender> playerConstructorQueue;
-    private CountDownLatch latch; // TODO: 2020. 06. 18.  change this
-    private int sentMessages = 1; // TODO: 2020. 06. 18. change this
+    private CountDownLatch latch;
+    private int sentMessages = 1;
 
 //    private Object lock = new Object();
 

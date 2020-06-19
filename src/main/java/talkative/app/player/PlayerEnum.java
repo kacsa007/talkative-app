@@ -2,7 +2,7 @@ package talkative.app.player;
 
 public enum PlayerEnum {
 
-    INITIATOR("Intiator"), PLAYERX("PlayerX");
+    INITIATOR("Intiator"), PLAYERX("Player - John");
 
     private String description;
 

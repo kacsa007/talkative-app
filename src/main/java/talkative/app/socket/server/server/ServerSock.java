@@ -15,7 +15,9 @@ import java.util.Map;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+/**
+ *  Basic socket app which is listening to a new connection, and messaging is going to be performed between players.
+ * */
 
 public class ServerSock
 {

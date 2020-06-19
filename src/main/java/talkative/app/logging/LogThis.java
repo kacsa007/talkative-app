@@ -18,9 +18,8 @@ public class LogThis {
         Logger LOGGER = Logger.getLogger(String.valueOf(record));
 
 
-// TODO: 2020. 06. 16. Need to change place to log to a better place!!!
         try {
-            File logPath = new File("C:\\Users\\Siraly\\testing\\game\\src\\test");
+            File logPath = new File("/test");
             if (!(logPath.exists())) {
                 logPath.mkdir();
             }

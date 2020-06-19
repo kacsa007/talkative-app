@@ -64,7 +64,7 @@ public class PlayerClient extends PlayerConstructorClient implements PlayerInter
     {
         SocketSender message = getMessages().take();
 
-        System.out.println("PlayerX says ... Message Received: " + message.getMessage());
+        System.out.println("Player - John says ... Message Received: " + message.getMessage());
 
     }
 

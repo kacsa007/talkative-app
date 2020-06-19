@@ -1,0 +1,15 @@
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Shell script runable
+*.swp
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
+/out

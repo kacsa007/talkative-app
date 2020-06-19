@@ -13,33 +13,30 @@ import java.util.concurrent.CountDownLatch;
 /**
  *
  *
- *   Main entry point of the application with 2 different games depending on the args input.
+ *   The start class is going to start the game based on the user args input. SOCKE/THREAD
  *
- *   {@link #playSocket} will start a game simulating two client communicating over a network with sockets
+ *   Socket will start a game simulating two players ( clients ) talking through a socket connection.
  *
- *   {@link #} will start a game of two simple Thread communicating with queues
+ *   Thread will start threading between players and the communication is performed via queues.
  *
- *    Both games anyway are based on a count down that will stop after required condition is satisfied for the initiator.
  *
- *    {@link CountDownLatch} will help to wait for the condition to be completed
+ *   Condition is going to exit the game. If this is reached a message is going to be printed.
  */
 
 
-
-// TODO: 2020. 06. 18. refactoring
 public class Start extends StartMain {
 
     private static Start startInstance = new Start();
 
     public void play(ClientInitiator initiator, PlayerClient playerX, CountDownLatch latch) throws InterruptedException, IOException
     {
-        System.out.println("Game started ...");
+        System.out.println("Game started successfully ...");
 
         SocketSender initiatorDispatcher = new SocketSender();
         initiatorDispatcher.setPlayer(PlayerEnum.INITIATOR);
         initiatorDispatcher.setSocket(initiator.getSocketString());
 
-        initiatorDispatcher.setMessage("Message number 1 form InitiatorClient : Hello world!");
+        initiatorDispatcher.setMessage("Message number 1 received form ClientInitiator : Hello There...I'm Listening!");
 
         initiator.send(initiatorDispatcher);
 
@@ -50,15 +47,15 @@ public class Start extends StartMain {
     }
 
 
-    public void play(Initiator initiator, PlayerConstructor playerX, CountDownLatch latch) throws InterruptedException {
-        System.out.println("Game started ...");
+    public void play(Initiator initiator, PlayerConstructor playerReady, CountDownLatch latch) throws InterruptedException {
+        System.out.println("Game started successfully...");
 
         /**
          * Initiator send first message
          */
         Sender dispatcher = new Sender();
         dispatcher.setPlayer(PlayerEnum.INITIATOR);
-        dispatcher.setMessage("Message number 1 from Initiator : Hello world!");
+        dispatcher.setMessage("Message number 1 from Initiator : Hello there player!");
         initiator.putMessage(dispatcher);
 
         /**
@@ -67,14 +64,14 @@ public class Start extends StartMain {
         initiator.setDaemon(true);
         initiator.start();
 
-        playerX.setDaemon(true);
-        playerX.start();
+        playerReady.setDaemon(true);
+        playerReady.start();
 
         latch.await();
 
-        System.out.println(PlayerEnum.INITIATOR.getDescription() + " terminated the game ...");
+        System.out.println(PlayerEnum.INITIATOR.getDescription() + " terminated the game limit is reached :( ...");
 
-        System.out.println("... Game over!");
+        System.out.println("... See you soon :) Have a nice day!");
 
     }
 

@@ -6,8 +6,8 @@ import java.util.concurrent.locks.ReentrantLock;
 /**
  *
  *
- *         Generic player of the game communicating with {@link Initiator} through player.test.thread safe {@link BlockingQueue} that waits until a queue has
- *         messages to process
+ *         Generic player thread safe communication.
+ *         {@link Initiator} ---> Through  {@link BlockingQueue}  --> this waits until has messages to process
  */
 public class PlayerConstructor extends Thread implements PlayerInterface
 {

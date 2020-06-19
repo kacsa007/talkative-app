@@ -8,6 +8,8 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/** This small helper class is used for defining common objects for both play type. Helps out the tests as well*/
+
 public class StartMain {
 
     private AtomicInteger countDown = new AtomicInteger(Declarations.messageCount);
