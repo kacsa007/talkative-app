@@ -2,6 +2,7 @@
 .idea/
 *.iml
 *.iws
+out/
 
 # Shell script runable
 *.swp
@@ -12,4 +13,5 @@
 # Maven
 log/
 target/
-/out
+# Mac
+.DS_Store
